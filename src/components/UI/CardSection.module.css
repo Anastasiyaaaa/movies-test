@@ -1,0 +1,16 @@
+.cardSection h2 {
+    color: #ffffff;
+    margin: 2rem auto;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.cardSection ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.clearAll {
+    margin: 20px auto;
+    display: block;
+}
