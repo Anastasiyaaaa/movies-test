@@ -5,7 +5,7 @@ const initialUIState = {
   notifications: {
     status: '',
     message: '',
-    title: ''
+    title: 'Сhoose the movies for yourself'
   }
 }
 const uiSlice = createSlice({
@@ -22,7 +22,12 @@ const uiSlice = createSlice({
       state.notifications.status = action.payload.status;
       state.notifications.message = action.payload.message;
       state.notifications.title = action.payload.title;
-
+    },
+    notificationsInitial(state) {
+      state.notifications = initialUIState.notifications;
+      /*
+      state.notifications.message = action.payload.message;
+      state.notifications.title = action.payload.title;*/
     }
   }
 });

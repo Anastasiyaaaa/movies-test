@@ -12,15 +12,10 @@ import NotFound from "./Pages/NotFound";
 function App() {
 
   const showCart = useSelector((state) => state.ui.cartVisible);
-  const notifications = useSelector((state) => state.ui.notifications);
 
   return (
     <Fragment>
-      <Notification
-        title={notifications.title}
-        massege={notifications.message}
-        status={notifications.status}
-      />
+      <Notification />
       <Layout>
         <Switch>
           <Route path='/' exact>

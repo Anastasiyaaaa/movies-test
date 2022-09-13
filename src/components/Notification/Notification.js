@@ -1,12 +1,26 @@
 import classes from './Notification.module.css';
+import {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {uiActions} from "../../store";
 
-const Notification = (props) => {
+const Notification = () => {
+
+  const dispatch = useDispatch();
+  const notifications = useSelector((state) => state.ui.notifications);
+
+  useEffect(() => {
+    setTimeout(() => {
+        dispatch(uiActions.notificationsInitial());
+      }, 5000
+    );
+  }, [notifications]);
+
   let specialClasses = '';
 
-  if (props.status === 'error') {
+  if (notifications.status === 'error') {
     specialClasses = classes.error;
   }
-  if (props.status === 'success') {
+  if (notifications.status === 'success') {
     specialClasses = classes.success;
   }
 
@@ -14,8 +28,8 @@ const Notification = (props) => {
 
   return (
     <section className={cssClasses}>
-      <h2>{props.title}</h2>
-      <p>{props.massege}</p>
+      <h2>{notifications.title}</h2>
+      <p>{notifications.message}</p>
     </section>
   );
 };
